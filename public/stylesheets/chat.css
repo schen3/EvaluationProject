@@ -1,0 +1,110 @@
+.row-xs-12, .row-xs-11, .row-xs-10, .row-xs-9, .row-xs-8, .row-xs-7, .row-xs-6,
+.row-xs-5, .row-xs-4, .row-xs-3, .row-xs-2, .row-xs-1 {
+	border: 1px solid black;
+
+}
+
+
+.row-xs-12 {
+  height: 100%;
+}
+.row-xs-11 {
+  height: 91.66666667%;
+}
+.row-xs-10 {
+  height: 83.33333333%;
+}
+.row-xs-9 {
+  height: 75%;
+}
+.row-xs-8 {
+  height: 66.66666667%;
+}
+.row-xs-7 {
+  height: 58.33333333%;
+}
+.row-xs-6 {
+  height: 50%;
+}
+.row-xs-5 {
+  height: 41.66666667%;
+}
+.row-xs-4 {
+  height: 33.33333333%;
+}
+.row-xs-3 {
+  height: 25%;
+}
+.row-xs-2 {
+  height: 16.66666667%;
+}
+.row-xs-1 {
+  height: 8.33333333%;
+}
+
+
+.fix_margin_padding {
+	margin: 0;
+	padding: 0;
+}
+
+.icon-right-wrapper {
+  float: right;
+  display: table;
+}
+
+.icon-right-wrapper > * {
+    display: table-cell;
+}
+
+.middle {
+  vertical-align: middle;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.rightCenter {
+  position: absolute;
+  top: 50%;
+  right:0;
+  transform: translateY(-50%);
+}
+
+.right {
+  float: right;
+}
+
+.full, .iconlist, .icon-right-wrapper {
+    height: 100%;
+}
+.footer {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.realContainer {
+  position: relative;
+}
+
+/**
+ * 
+ **/
+.portrait {
+  width:30%;
+  height:30%; 
+  border: 1px solid red;
+  padding: 1px;
+}
+
+.portrait img {
+  width:100%;
+  height:100%; 
+}
+.
