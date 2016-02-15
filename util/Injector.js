@@ -9,13 +9,13 @@ var Injector = function() {
 
 	// retrieve the instance from instances via objName
 	function _retrieveInstance(objName) {
+		var _instance = null;
 		instances.forEach(function(obj) {
 				if(!!obj && obj.name == objName) {
-					console.log('yyyyyyyyyyyyyyyyyyyyyyy', obj.instance);
-					return obj.instance;
+					_instance = obj.instance;
 				}
 		});
-		return null;
+		return _instance;
 	};
 
 	// create Instance

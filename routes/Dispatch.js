@@ -30,7 +30,6 @@ var dispatch = function(server) {
 		var roomInstance = null;
 
 		socket.on('registerOnChanel', function(data) {
-			console.log('data', data);
 
 			//data.roomId, create a room
 			roomInstance = $injector.getInstance(data.roomId, C2SSubject, data.roomId);
@@ -47,13 +46,10 @@ var dispatch = function(server) {
 			//add roomInstance to rooms
 			subjectManagers.add(roomInstance);
 
-			console.log('SubjectManagers', subjectManagers);
-			console.log('$injector', $injector);
 		});
 
 
 		socket.on('msg', function(msg) {
-			console.log('xxxxxxxxxxroomInstance', roomInstance);
 			roomInstance.dispatchMsg(msg);
 		});
 

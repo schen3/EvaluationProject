@@ -10,9 +10,9 @@ var C2SObserver = function(uuid_socket, socket) {
 		console.log("Hello xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 		console.log("Hello", msg);
 
-		// this.getSocket().emit('msg', {
-		// 	message: "received message"
-		// });
+		this.getSocket().emit('msg', {
+			message: "received message"
+		});
 
 		//MSG_SINGLE, 
 		// find the socket ID in the redis,

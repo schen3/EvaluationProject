@@ -37,7 +37,7 @@
     var socket1 = io.connect('http://localhost:8090');
     socket1.on('connected', function(data) {
         socket1.emit('registerOnChanel', {
-            roomId: 'rrr1',
+            roomId: 'rrr2',
             socketId: 'xxxx2'
         });
 
