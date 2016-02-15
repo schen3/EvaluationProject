@@ -54,7 +54,8 @@ AbstractObserver.prototype.equal = function(obj) {
 
 // MsgContent: any string
 
-var AbstractSubject = function() {
+var AbstractSubject = function(roomName) {
+    this.roomName = roomName;
     this.observers = []; //default observer
 
     var state = {
@@ -124,6 +125,14 @@ AbstractSubject.prototype.attach = function(observer) {
     }
 }
 
+AbstractSubject.prototype.equal = function(obj) {
+    if (!obj || !obj.roomName) {
+        return false;
+    }
+
+    return obj.roomName == this.roomName;
+}
+
 
 
 
@@ -141,7 +150,9 @@ AbstractSubject.prototype.detach = function(observer) {
 
         if (index != -1) {
             $injector.removeInstance(observer.getUUID_Socket());
-            delete this.observers[index].socket.nsp.sockets[this.observers[index].socket.id];
+            if(this.observers[index].socket) {
+                delete this.observers[index].socket.nsp.sockets[this.observers[index].socket.id];
+            }
             delete this.observers[index];
             this.observers.remove(index);
         }

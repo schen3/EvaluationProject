@@ -9,12 +9,13 @@ var Injector = function() {
 
 	// retrieve the instance from instances via objName
 	function _retrieveInstance(objName) {
+		var _instance = null;
 		instances.forEach(function(obj) {
 				if(!!obj && obj.name == objName) {
-					return obj.instance;
+					_instance = obj.instance;
 				}
 		});
-		return null;
+		return _instance;
 	};
 
 	// create Instance
@@ -36,6 +37,7 @@ var Injector = function() {
 	// if not found, create a new one for objClass
 	function getInstance(objName, objClass) {
 		var instance = _retrieveInstance(objName);
+		console.log(objName, instance);
 		if(!instance) {
 			return _createInstance(objName, objClass, util.args.list(arguments, 2));
 		} else {

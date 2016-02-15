@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -18,9 +19,24 @@ app.set('view engine', 'jade');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// session
+var sessionConfig = session({
+  secret: 'ChatChatChatChat',
+  // saveUninitialized: false,
+  resave: true,
+  name: 'express.id',
+  saveUninitialized: false,
+  cookie: {
+    maxAge: 60000
+  }
+});
+app.use(sessionConfig);
 
 app.use('/', routes);
 app.use('/users', users);
@@ -58,3 +74,4 @@ app.use(function(err, req, res, next) {
 
 
 module.exports = app;
+module.exports.session = sessionConfig;

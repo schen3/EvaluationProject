@@ -27,16 +27,16 @@ var S2SObserver = function  (uuid_socket, socket) {
 
 
 
-var S2SSubjectManage = function  () {
-	AbstractSubject.call(this);
+var S2SSubject = function  (roomName) {
+	AbstractSubject.call(this, roomName);
 }
 
 
 S2SObserver.prototype = Object.create(AbstractObserver.prototype);
-S2SSubjectManage.prototype = Object.create(AbstractSubject.prototype);
+S2SSubject.prototype = Object.create(AbstractSubject.prototype);
 
 S2SObserver.prototype.contructor = S2SObserver;
-S2SSubjectManage.prototype.contructor = S2SSubjectManage;
+S2SSubject.prototype.contructor = S2SSubject;
 
 module.exports.S2SObserver = S2SObserver;
-module.exports.S2SSubjectManage = S2SSubjectManage;
+module.exports.S2SSubject = S2SSubject;
