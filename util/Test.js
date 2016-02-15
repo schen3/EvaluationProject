@@ -1,32 +1,38 @@
-var S2SObserver = require('./S2SObserver.js').S2SObserver;
-var S2SSubjectManage = require('./S2SObserver.js').S2SSubjectManage;
+var C2SObserver = require('./C2SObserver.js').C2SObserver;
+var C2SSubject = require('./C2SObserver.js').C2SSubject;
+var SubjectManagers = require('./SubjectManagers.js');
 var $injector = require('./Injector.js');
 var util = require('./Util.js');
 
+var subjectManages = null;
+if(!$injector.statics.SubjectManagers) {
+	subjectManages = $injector.statics.SubjectManagers = $injector.getInstance('xxxxManagers', SubjectManagers);
+}
 
-var s2ssubjectManage = $injector.getInstance('s2ssubjectManage', S2SSubjectManage);
-var s1sObserver = $injector.getInstance('s1sObserver', S2SObserver, 'id1');
-var s2sObserver = $injector.getInstance('s2sObserver', S2SObserver, 'id2');
-var s2_same_sObserver = $injector.getInstance('s2sObserver', S2SObserver, 'id2');
-var s2sObserver_fake = $injector.getInstance('s2sObserver_fake', S2SObserver, 'id2_fake');
-var s3sObserver = $injector.getInstance('s3sObserver', S2SObserver, 'id3');
+var s2ssubject = $injector.getInstance('s2ssubjectManage', C2SSubject, 'xxxRoom');
+var s1sObserver = $injector.getInstance('s1sObserver', C2SObserver, 'id1');
+var s2sObserver = $injector.getInstance('s2sObserver', C2SObserver, 'id2');
+var s2_same_sObserver = $injector.getInstance('s2sObserver', C2SObserver, 'id2');
+var s2sObserver_fake = $injector.getInstance('s2sObserver_fake', C2SObserver, 'id2_fake');
+var s3sObserver = $injector.getInstance('s3sObserver', C2SObserver, 'id3');
 
 //test
 // var s2sObserver = new S2SObserver("id1");
 // var s3sObserver = new S2SObserver("id2");
 
-var s2ssubjectManage = new S2SSubjectManage();
 
 
 // s2ssubjectManage.attach(s2sObserver);
-s2ssubjectManage.attach(s3sObserver);
-s2ssubjectManage.attach(s1sObserver);
-s2ssubjectManage.attach(s2sObserver);
-s2ssubjectManage.attach(s2_same_sObserver);
+s2ssubject.attach(s3sObserver);
+s2ssubject.attach(s1sObserver);
+s2ssubject.attach(s2sObserver);
+s2ssubject.attach(s2_same_sObserver);
 
-s2ssubjectManage.detach(s3sObserver);
+s2ssubject.detach(s3sObserver);
 
 
+subjectManages.add(s2ssubject);
+console.log('subjectManages',  subjectManages.subjects[0]);
 
 var msg = {
 	from: 'xx',
@@ -35,9 +41,9 @@ var msg = {
 	msgcontent: ''
 }
 
-console.log($injector.instances.length);
 
-s2ssubjectManage.dispatchMsg(msg);
+
+s2ssubject.dispatchMsg(msg);
 
 
 //Singleton Mode, Observer Pattern Finished

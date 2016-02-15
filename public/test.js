@@ -24,7 +24,8 @@
     var socket0 = io.connect('http://localhost:8090');
 
     socket0.on('connected', function(data) {
-        socket0.emit('login', {
+        socket0.emit('registerOnChanel', {
+            roomId: 'rrr1',
             socketId: 'xxxx1'
         });
 
@@ -35,7 +36,8 @@
 
     var socket1 = io.connect('http://localhost:8090');
     socket1.on('connected', function(data) {
-        socket1.emit('login', {
+        socket1.emit('registerOnChanel', {
+            roomId: 'rrr1',
             socketId: 'xxxx2'
         });
 
@@ -46,7 +48,8 @@
 
     var socket2 = io.connect('http://localhost:8090');
     socket2.on('connected', function(data) {
-        socket2.emit('login', {
+        socket2.emit('registerOnChanel', {
+            roomId: 'rrr1',
             socketId: 'xxxx3'
         });
 

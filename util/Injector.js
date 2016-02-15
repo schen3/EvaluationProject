@@ -11,6 +11,7 @@ var Injector = function() {
 	function _retrieveInstance(objName) {
 		instances.forEach(function(obj) {
 				if(!!obj && obj.name == objName) {
+					console.log('yyyyyyyyyyyyyyyyyyyyyyy', obj.instance);
 					return obj.instance;
 				}
 		});
@@ -36,6 +37,7 @@ var Injector = function() {
 	// if not found, create a new one for objClass
 	function getInstance(objName, objClass) {
 		var instance = _retrieveInstance(objName);
+		console.log(objName, instance);
 		if(!instance) {
 			return _createInstance(objName, objClass, util.args.list(arguments, 2));
 		} else {

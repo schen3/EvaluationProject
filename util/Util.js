@@ -11,6 +11,8 @@ util.constant.DELIMITER_GROUP = ',';
 util.constant.MSG_SINGLE = 'MSG_SINGLE';
 util.constant.MSG_GROUP = 'MSG_GROUP';
 
+// Error 
+util.constant.ERROR_EXISTING_ACCOUNT = 'There\'s  existing username or email, please check it';
 
 //TODO
 // MSGTYPE: server to server : {MSG_SEVER}
@@ -68,14 +70,25 @@ util.string.in = function(targetStr, groups) {
 	return find;
 }
 
-util.string.uuid = function() {
-  function s4() {
-    return Math.floor((1 + Math.random()) * 0x10000)
-      .toString(16)
-      .substring(1);
-  }
-  return s4() + s4() + s4() + s4() +
-    s4() + s4() + s4() + s4();
+// n = 4, the length output is 16
+// n = 5, the length of output is 20 
+util.string.uuid = function(n) {
+	var num = n || 4;
+
+	function _s4() {
+		return Math.floor((1 + Math.random()) * 0x10000)
+			.toString(16)
+			.substring(1);
+	}
+
+	function _generate() {
+		var str = "";
+		for(var i = 0; i < num; i++) {
+			str = str + _s4();
+		}
+		return str
+	}
+	return _generate();
 }
 
 module.exports = util;

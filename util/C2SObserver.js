@@ -10,13 +10,14 @@ var C2SObserver = function(uuid_socket, socket) {
 		console.log("Hello xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 		console.log("Hello", msg);
 
-		this.getSocket().emit('msg', {
-			message: "received message"
-		});
+		// this.getSocket().emit('msg', {
+		// 	message: "received message"
+		// });
 
 		//MSG_SINGLE, 
 		// find the socket ID in the redis,
 		// send message to other socket
+
 
 
 
@@ -33,16 +34,16 @@ var C2SObserver = function(uuid_socket, socket) {
  * firstly, create a observer for him, add the observer in the subject center
  * 
  **/
-var C2SSubjectManage = function() {
+var C2SSubject = function(roomName) {
 	//client side uuid;
-	AbstractSubject.call(this);
+	AbstractSubject.call(this, roomName);
 }
 
 C2SObserver.prototype = Object.create(AbstractObserver.prototype);
-C2SSubjectManage.prototype = Object.create(AbstractSubject.prototype);
+C2SSubject.prototype = Object.create(AbstractSubject.prototype);
 
 C2SObserver.prototype.contructor = C2SObserver;
-C2SSubjectManage.prototype.contructor = C2SSubjectManage;
+C2SSubject.prototype.contructor = C2SSubject;
 
 module.exports.C2SObserver = C2SObserver;
-module.exports.C2SSubjectManage = C2SSubjectManage;
+module.exports.C2SSubject = C2SSubject;
