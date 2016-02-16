@@ -31,7 +31,7 @@ MongoDB.findUserByEmailOrUserName = function(user) {
 	var queryOrParameters = [{
 		username: user.username
 	}, {
-		email: user.email
+		email: user.username
 	}];
 	ProfileModel.findOne({
 		$or: queryOrParameters
@@ -110,7 +110,7 @@ MongoDB.findByChatID = function(msg) {
 		}
 
 		if (msg.type === util.constant.MSG_GROUP) {
-			return msg.from;
+			return msg.to;
 		}
 	}
 

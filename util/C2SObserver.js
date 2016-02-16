@@ -11,7 +11,7 @@ var C2SObserver = function(uuid_socket, socket) {
 		console.log("Hello", msg);
 
 		this.getSocket().emit('msg', {
-			message: "received message"
+			message: msg
 		});
 
 		//MSG_SINGLE, 

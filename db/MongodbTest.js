@@ -33,8 +33,7 @@ var msg = {
 	from: "xxxxx1",
 	to: "xxxxx2",
 	msgtype: 'MSG_SINGLE',
-	content: 'xxfsfdsfds',
-	date: new Date
+	content: 'xxfsfdsfds'
 };
 
 MongoDB.logchat(msg).then((saveObj) => {

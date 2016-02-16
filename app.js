@@ -8,6 +8,9 @@ var session = require('express-session');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var api = require('./routes/api');
+
+console.log('api', api);
 
 var app = express();
 
@@ -31,15 +34,13 @@ var sessionConfig = session({
   // saveUninitialized: false,
   resave: true,
   name: 'express.id',
-  saveUninitialized: false,
-  cookie: {
-    maxAge: 60000
-  }
+  saveUninitialized: false
 });
 app.use(sessionConfig);
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/api', api);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -26,7 +26,8 @@ var AbstractObserver = function(uuid_socket, socketarg) {
 
     this.needUpdate = function(msg) {
         if (msg.msgtype === util.constant.MSG_GROUP) {
-            return util.string.in(this.uuid, msg.to.split(util.constant.DELIMITER_GROUP));
+            // return util.string.in(this.uuid, msg.to.split(util.constant.DELIMITER_GROUP));
+            return true;
         }
         if (msg.msgtype === util.constant.MSG_SINGLE) {
             return this.uuid === msg.to;

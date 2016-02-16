@@ -8,7 +8,7 @@ var HistorySchema  = new Schema({
 		to:   	 String,
 		msgtype: String,
 		content: String,
-		date:    Date
+		date:    {type: Date, default: Date.now}
 	}]
 });
 

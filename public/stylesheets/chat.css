@@ -57,6 +57,10 @@ body{
 	padding: 0;
 }
 
+form > div {
+  padding: 5px;
+}
+
 .icon-right-wrapper {
   float: right;
   display: table;
@@ -98,6 +102,14 @@ body{
 	right: 0;
 }
 
+.absolute {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
 .realContainer {
   position: relative;
 }
@@ -119,13 +131,7 @@ body{
 .buttons{
   height: 100%
 }
-input[type="text"], textarea {
 
-  background-color : #635274
-  
-  ; 
-
-}
 .singlechat{
   position: relative;
   margin-bottom: 0px;
@@ -140,7 +146,13 @@ input[type="text"], textarea {
   color: white !important;
   font-weight: bold;
 }
-.triangle{
+
+.message {
+  padding: 10px;
+
+}
+
+.message > p{
     position: relative;
     width: 33%;
     padding: 15px;
@@ -149,9 +161,9 @@ input[type="text"], textarea {
     background: #fff;
     border-radius: 10px;
     opacity: 0.7;
+}
 
-  }
-.triangle:before {
+.message > p:before {
     content: "";
     position: absolute;
     bottom: -20px;
@@ -162,7 +174,8 @@ input[type="text"], textarea {
     display: block;
     width: 0;
 }
-  .triangle:after {
+
+.message > p:after {
     content: "";
     position: absolute;
     bottom: -13px;
@@ -173,15 +186,13 @@ input[type="text"], textarea {
     display: block;
     width: 0;
 }
-.me{
-    float: right;
-    position: relative;
-    width: 33%;
-    padding: 15px;
-    border: 5px solid #5a8f00;
-    color: #333;
-    background: #fff;
-    border-radius: 10px;
-    opacity: 0.7;
 
-  }
+.message.me > p {
+  float: right;
+}
+
+.message.me:after {
+      content: "";
+      display: table;
+      clear: both;
+};

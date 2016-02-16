@@ -3,10 +3,10 @@ util.msg = {};
 util.args = {};
 util.string = {};
 util.constant = {};
-
+util.fn = {};
 
 // Constance: server to server : {MSG_SEVER}
-//          client to server : {MSG_SINGLE, MSG_GROUP}
+// client to server : {MSG_SINGLE, MSG_GROUP}
 util.constant.DELIMITER_GROUP = ',';
 util.constant.MSG_SINGLE = 'MSG_SINGLE';
 util.constant.MSG_GROUP = 'MSG_GROUP';
@@ -90,5 +90,10 @@ util.string.uuid = function(n) {
 	}
 	return _generate();
 }
+
+// util.function
+util.fn.defer = typeof setImmediate === 'function'
+  ? setImmediate
+  : function(fn){ process.nextTick(fn.bind.apply(fn, arguments)) }
 
 module.exports = util;
